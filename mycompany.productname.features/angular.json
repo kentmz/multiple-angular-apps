@@ -1,0 +1,215 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "dashboard": {
+      "root": "",
+      "sourceRoot": "mycompany.productname.dashboard",
+      "projectType": "application",
+      "prefix": "dashboard",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mycompany.productname.dashboard",
+            "index": "mycompany.productname.dashboard/index.html",
+            "main": "mycompany.productname.dashboard/main.ts",
+            "polyfills": "mycompany.productname.dashboard/polyfills.ts",
+            "tsConfig": "mycompany.productname.dashboard/tsconfig.app.json",
+            "assets": [
+              "mycompany.productname.dashboard/assets"
+            ],
+            "styles": [
+              "mycompany.productname.dashboard/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "mycompany.productname.dashboard/environments/environment.ts",
+                  "with": "mycompany.productname.dashboard/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dashboard:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dashboard:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dashboard:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "mycompany.productname.dashboard/test.ts",
+            "polyfills": "mycompany.productname.dashboard/polyfills.ts",
+            "tsConfig": "mycompany.productname.dashboard/tsconfig.spec.json",
+            "karmaConfig": "mycompany.productname.dashboard/karma.conf.js",
+            "styles": [
+              "mycompany.productname.dashboard/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "mycompany.productname.dashboard/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "mycompany.productname.dashboard/tsconfig.app.json",
+              "mycompany.productname.dashboard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "schedule": {
+      "root": "",
+      "sourceRoot": "mycompany.productname.schedule",
+      "projectType": "application",
+      "prefix": "schedule",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/mycompany.productname.schedule",
+            "index": "mycompany.productname.schedule/index.html",
+            "main": "mycompany.productname.schedule/main.ts",
+            "polyfills": "mycompany.productname.schedule/polyfills.ts",
+            "tsConfig": "mycompany.productname.schedule/tsconfig.app.json",
+            "assets": [
+              "mycompany.productname.schedule/assets"
+            ],
+            "styles": [
+              "mycompany.productname.schedule/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "mycompany.productname.schedule/environments/environment.ts",
+                  "with": "mycompany.productname.schedule/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "schedule:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "schedule:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "schedule:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "mycompany.productname.schedule/test.ts",
+            "polyfills": "mycompany.productname.schedule/polyfills.ts",
+            "tsConfig": "mycompany.productname.schedule/tsconfig.spec.json",
+            "karmaConfig": "mycompany.productname.schedule/karma.conf.js",
+            "styles": [
+              "mycompany.productname.schedule/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "mycompany.productname.schedule/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "mycompany.productname.schedule/tsconfig.app.json",
+              "mycompany.productname.schedule/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "features-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "schedule:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "schedule:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "dashboard"
+}
